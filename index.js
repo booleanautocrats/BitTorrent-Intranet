@@ -1,4 +1,4 @@
-
+const bencode = require('bencode');
 const fs = require("fs");
 const urlParse = require("url").parse;
 const dgram = require('dgram');
@@ -8,16 +8,21 @@ var bencoding = require('bencoding');
 const Buff = fs.readFileSync("initial.torrent")
 
 // gives buffer data
+console.log("Buffer data");
 console.log(Buff);
-console.log(Buff.toString('utf8'));
+const torrent = Buff.toString('utf-8');
+console.log("torrent data");
+console.log(torrent);
+
 
 //gives the bencode(data format)
 console.log("here is bencode");
-const torrentBen = bencoding.decode(Buff.toString('utf8'));
+const torrentBen = bencoding.decode(torrent);
 console.log(torrentBen);
 
+
 //to get the url
-const url = urlParse(Buff.toString('utf8'));
+const url = urlParse(torrent);
 console.log("here is the url");
 console.log(url);
 
