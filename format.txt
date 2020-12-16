@@ -34,3 +34,14 @@ Offset  Size    Name    Value
 96      16-bit integer  port            ? // should be betwee
 98
 
+*parsing the response from the tracker
+Offset      Size            Name            Value
+0           32-bit integer  action          1 // announce
+4           32-bit integer  transaction_id
+8           32-bit integer  interval
+12          32-bit integer  leechers
+16          32-bit integer  seeders
+20 + 6 * n  32-bit integer  IP address
+24 + 6 * n  16-bit integer  TCP port
+20 + 6 * N
+
